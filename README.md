@@ -17,4 +17,4 @@ Misinformation spread through social media poses a grave threat to public health
 
 ## Acknowledgments
 
-We would like to thank the MDI staff and the members of the Georgetown University DataLab for their support. We also thank the anonymous reviewers for the detailed and thoughtful reviews. Finally, we acknowledge the National Science Foundation awards #1934925 and #1934494.
+We would like to thank the MDI staff and the members of the Georgetown University DataLab for their support. We also acknowledge the National Science Foundation awards #1934925 and #1934494.
