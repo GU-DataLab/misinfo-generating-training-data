@@ -1,11 +1,17 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 """ Sample tweets containing specific phrases
 
-Usage
+@inputs: list of keywords to search (required argument)
+@outputs: list of tweets containing the keywords (.csv file)
+
+@usage:
 -----
 
 ```bash
 python -m jobs.sampling.sample_phrases \
-    --input "data/election2020/#2020election_20190616.json" \
+    --input "data/PROJECT/FILEPATH.json" \
     --output output/ \
     --phrases \
     "love" \
@@ -14,45 +20,21 @@ python -m jobs.sampling.sample_phrases \
     --preprocessing_choices 'stopwords' 'lowercase' 'stemmed'
 ```
 
-```bash
-spark-submit \
-   --py-files dist/shared.zip \
-    jobs/sampling/sample_phrases.py \
-    --input "data/election2020/#2020election_20190616.json" \
-    --output output/ \
-    --phrases \
-    "already" \
-    "cut the field" \
-    --limit 5 \
-    --lang "en" \
-    --phrase_conditional 'AND'
-```
-
-```bash
-gcloud dataproc jobs submit pyspark \
-    --cluster "colton" \
-    --region "us-east4" \
-    --py-files "gs://build-artifacts/pyspark-shared.zip" \
-    gs://build-artifacts/pyspark-jobs/sampling/sample_phrases.py \
-    -- \
-    --input \
-    "gs://project_gun-violence/raw/hashtag/2017" \
-    --output output/ \
-    --phrases \
-    "efforts" \
-    "speak" \
-    "election" \
-    --limit 2000 \
-    --lang "en"
-```
-
 """
+
+###############################################
+# Import packages
+###############################################
 
 import pyspark.sql.functions as f
 
 from shared.base_job import BaseJob
 from shared.job_helpers import construct_output_filename
 
+
+###############################################
+# Define functions
+###############################################
 
 class SamplePhrasesJob(BaseJob):
 
@@ -136,6 +118,10 @@ class SamplePhrasesJob(BaseJob):
         else:
             self.df = self.df.select("id_str", "date", self.args.target_attr)
 
+
+###############################################
+# Execute functions
+###############################################
 
 if __name__ == "__main__":
 

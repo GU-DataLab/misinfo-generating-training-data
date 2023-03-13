@@ -4,15 +4,19 @@
 '''
 @title: Format converter
 @description: Converts MTurk results to the format [tweet_id, text, label]. Base input filepath(s) must be passed as a command-line argument; these will be appended with `-results.csv` to find input data and `-labeled.csv` to save output data.
-@usage: python3 3_label_mturk_results.py --input_fp DATA_FP1 DATA_FP2
+@usage: 
+    ```bash
+    python3 3_label_mturk_results.py --input_fp DATA_FP1 DATA_FP2
+    ```
+@inputs: list of labeled tweets repeated over multiple workers with filename format 'myth_{myth_name}_sample_{sample_size}_{date}-results.csv'
+@outputs: list of validated labeled tweets with filename format 'myth_{myth_name}_sample_{sample_size}_{date}-labeled.csv'
 '''
 
 
 ###############################################
-# Initialize
+# Import packages
 ###############################################
 
-# import packages
 import numpy as np
 import pandas as pd
 import csv
