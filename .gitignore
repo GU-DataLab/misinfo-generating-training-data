@@ -130,3 +130,6 @@ dmypy.json
 
 # extra code
 code/filter_tweets.py
+code/2_process_mturk_results_example.ipynb
+code/4_train_classifiers_example.ipynb
+code/5_sample_tweets_example.ipynb
