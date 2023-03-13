@@ -1,3 +1,5 @@
+# ML models for misinformation detection
+
 This folder contains our refined models and vectorizers (with TF-IDF weighting) for identifying each myth related to COVID-19:
 * 5G  
 * antibiotics  
